@@ -81,18 +81,17 @@ export default function Example() {
                 <div className={styles.selection_container}>
                   <button
                     id="button-theme-light"
+                    value="Yes we do."
                     className={
                       theme === "light"
                         ? styles.button_theme_selected
                         : styles.button_theme
                     }
-                    value="Yes we do."
-                    onClick={() => updateTheme("light")}
+                    onClick={() => updateTheme("light"), updateName(e.target.value)}
                     onFocus={(e) =>
                       updateMyPresence({ focusedId: e.target.id })
                     }
                     onBlur={() => updateMyPresence({ focusedId: null })}
-                    onChange={(e) => updateName(e.target.value)}
 
                   >
                     Yes
@@ -102,18 +101,18 @@ export default function Example() {
                 <div className={styles.selection_container}>
                   <button
                     id="button-theme-dark"
+                    value="No we don't."
                     className={
                       theme === "dark"
                         ? styles.button_theme_selected
                         : styles.button_theme
                     }
-                    onClick={() => updateTheme("dark")}
+                    onClick={() => updateTheme("dark"), updateName(e.target.value)}
                     onFocus={(e) =>
                       updateMyPresence({ focusedId: e.target.id })
                     }
-                    value="No we don't."
+
                     onBlur={() => updateMyPresence({ focusedId: null })}
-                    onChange={(e) => updateName(e.target.value)}
                   >
                     No
                   </button>
