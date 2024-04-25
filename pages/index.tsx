@@ -92,7 +92,7 @@ export default function Example() {
                       updateMyPresence({ focusedId: e.target.id })
                     }
                     onBlur={() => updateMyPresence({ focusedId: null })}
-                    onChange={(e) => updateName(e.taget.value)}
+                    onChange={(e) => updateName(e.target.value)}
 
                   >
                     Yes
@@ -113,7 +113,7 @@ export default function Example() {
                     }
                     value="No we don't."
                     onBlur={() => updateMyPresence({ focusedId: null })}
-                    onChange={(e) => updateName(e.taget.value)}
+                    onChange={(e) => updateName(e.target.value)}
                   >
                     No
                   </button>
