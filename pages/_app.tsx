@@ -15,7 +15,7 @@ function App({ Component, pageProps }: AppProps) {
       initialPresence={{ focusedId: null }}
       initialStorage={{
         logo: new LiveObject({
-          name: "Acme Inc.",
+          name: "Yes we do.",
           theme: "light",
         }),
       }}
