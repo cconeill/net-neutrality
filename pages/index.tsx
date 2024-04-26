@@ -40,12 +40,9 @@ export default function Example() {
    */
   const logo = useStorage((root) => root.logo);
 
-  const updateName = useMutation(({ storage }, name: string) => {
-    storage.get("logo").set("name", name);
-  }, []);
-
-  const updateTheme = useMutation(({ storage }, theme: "light" | "dark") => {
+  const updateTheme = useMutation(({ storage }, theme: "light" | "dark", name: "Yes, we do." | "No, we don't.") => {
     storage.get("logo").set("theme", theme);
+    storage.get("logo").set("name", name);
   }, []);
 
   if (!logo) {
@@ -72,7 +69,6 @@ export default function Example() {
       </div>
       <div className={styles.form_container}>
         <div className={styles.form_content}>
-          <Avatars />
           <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
             <h2 className={styles.heading}>Do we have Net Neutrality?</h2>
             <div className={styles.form_group}>
@@ -86,7 +82,7 @@ export default function Example() {
                         ? styles.button_theme_selected
                         : styles.button_theme
                     }
-                    onClick={() => updateTheme("light"), updateName("Yes, we do.")}
+                    onClick={() => updateTheme("light", "Yes, we do.")}
                     onFocus={(e) =>
                       updateMyPresence({ focusedId: e.target.id })
                     }
@@ -105,7 +101,7 @@ export default function Example() {
                         ? styles.button_theme_selected
                         : styles.button_theme
                     }
-                    onClick={() => updateTheme("dark"), updateName("No, we don't.")}
+                    onClick={() => updateTheme("dark", "No, we don't.")}
                     onFocus={(e) =>
                       updateMyPresence({ focusedId: e.target.id })
                     }
@@ -119,7 +115,12 @@ export default function Example() {
               </div>
             </div>
           </form>
+          <a className={styles.link} href="https://www.fcc.gov/news-events/headlines">https://www.fcc.gov/news-events/headlines</a>
         </div>
+      </div>
+      <div className={styles.footer}>
+        <div>Source code <a className={styles.link} href="https://github.com/cconeill/net-neutrality">cconeill/net-neutrality</a> 👨‍💻</div>
+        <div>Made with <a className={styles.link} href="https://liveblocks.io/">Liveblocks</a> 🙌</div>
       </div>
     </div>
   );
@@ -143,27 +144,6 @@ function Selections({ id }: { id: string }) {
     </>
   );
 }
-
-const Avatars = React.memo(function Avatars() {
-  const me = useSelf((me) => me.info);
-  const users = useOthersMapped((others) => others.info);
-  return (
-    <div className={styles.avatars}>
-      {users.slice(0, 3).map(([connectionId, info]) => {
-        return (
-          <Avatar
-            key={connectionId}
-            src={info.avatar}
-            name={info.name}
-            color={COLORS[connectionId % COLORS.length]}
-          />
-        );
-      })}
-
-      {me && <Avatar src={me.avatar} name="You" />}
-    </div>
-  );
-});
 
 export async function getStaticProps() {
   const API_KEY = process.env.LIVEBLOCKS_SECRET_KEY;

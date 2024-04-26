@@ -5,7 +5,7 @@
   --color-background-input: #fff;
   --color-primary: #0044ff;
   --color-primary-faded: #dbe4fd;
-  --color-background-preview: #f3f3f3;
+  --color-background-preview: #9dd1e5;
   --color-foreground-primary: #222;
   --color-foreground-secondary: #777;
 
@@ -16,7 +16,7 @@
   background: var(--color-background);
   min-height: 100vh;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
 }
 
 @media (max-width: 960px) {
@@ -41,29 +41,43 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  font-family: "Gochi Hand", cursive;
   user-select: none;
 }
 
 .preview_container {
   color: var(--color-foreground-primary);
   background: var(--color-background-preview);
+  background-image: url("../public/fcc-white.png");
+  background-size: 30%;
+  background-repeat: no-repeat;
 }
 
 .preview_container_dark {
   color: var(--color-foreground-primary-dark);
   background: var(--color-background-preview-dark);
+  background-image: url("../public/fcc-red.png");
+  background-size: 30%;
+  background-repeat: no-repeat;
 }
 
 .preview {
-  font-size: 48px;
-  transform: rotate(-6deg);
+  font-size: 72px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 2rem;
+  left: auto;
+  right: auto;
+  color: #2e2c2c;
+  width: 100%;
+  text-align: center;
 }
 
 .form_container {
   display: flex;
-  align-items: center;
-  padding: 96px;
+  align-items: start;
+  /* padding: 96px; */
 }
 
 .form_content {
@@ -170,7 +184,7 @@
 
 .button_theme_selected {
   color: var(--color-primary);
-  background-color: var(--color-background-preview);
+  background-color: var(--color-foreground-primary-dark);
   box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1),
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.05);
 }
@@ -189,4 +203,8 @@
   width: 64px;
   height: 64px;
   opacity: 0.2;
+}
+
+.link {
+  text-decoration: underline;
 }
