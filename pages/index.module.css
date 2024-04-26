@@ -74,6 +74,15 @@
   text-align: center;
 }
 
+.fcc_link {
+  display: block;
+  left: auto;
+  right: auto;
+  color: #2e2c2c;
+  width: 100%;
+  text-align: center;
+}
+
 .form_container {
   display: flex;
   align-items: start;

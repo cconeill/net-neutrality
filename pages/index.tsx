@@ -114,9 +114,11 @@ export default function Example() {
                 </div>
               </div>
             </div>
-          </form>
-          <a className={styles.link} href="https://www.fcc.gov/news-events/headlines">https://www.fcc.gov/news-events/headlines</a>
+          </form>          
+          <a className={styles.fcc_link} href="https://www.fcc.gov/news-events/headlines">https://www.fcc.gov/news-events/headlines</a>
+ 
         </div>
+        
       </div>
       <div className={styles.footer}>
         <div>Source code <a className={styles.link} href="https://github.com/cconeill/net-neutrality">cconeill/net-neutrality</a> 👨‍💻</div>
