@@ -47,7 +47,7 @@
 .preview_container {
   color: var(--color-foreground-primary);
   background: var(--color-background-preview);
-  background-image: url("/public/fcc-white.png");
+  background-image: url("/fcc-white.png");
   background-size: 30%;
   background-repeat: no-repeat;
 }
@@ -55,7 +55,7 @@
 .preview_container_dark {
   color: var(--color-foreground-primary-dark);
   background: var(--color-background-preview-dark);
-  background-image: url("/public/fcc-red.png");
+  background-image: url("/fcc-red.png");
   background-size: 30%;
   background-repeat: no-repeat;
 }
